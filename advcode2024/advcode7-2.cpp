@@ -9,37 +9,6 @@ const std::vector<std::string> operacoes = {"+", "*", "||"};
 
 typedef std::pair<long long, std::vector<int>> Equacao;
 
-void print_vector(std::vector<Equacao> lista)
-{
-    for (Equacao equacao : lista)
-    {
-        std::cout << equacao.first << ": " << " ";
-        for (long long numero : equacao.second)
-        {
-            std::cout << numero << "," << " ";
-        }
-        std::cout << std::endl;
-    }
-}
-
-void print_vector_str(std::vector<std::string> lista)
-{
-    for (std::string numero : lista)
-    {
-        std::cout << numero << " ";
-    }
-    std::cout << std::endl;
-}
-
-void print_vector_int(std::vector<int> lista)
-{
-    for (int numero : lista)
-    {
-        std::cout << numero << " ";
-    }
-    std::cout << std::endl;
-}
-
 std::vector<std::vector<std::string>> gera_combinacoes(int espacos)
 {
     std::vector<std::vector<std::string>> combinacoes;
@@ -97,10 +66,6 @@ int main()
         for (long long j = 0; j < combinacoes_operacoes.size(); j++)
         {
             std::vector<std::string> combinacao = combinacoes_operacoes[j];
-            // std::cout << "A COMBINACAO: " << j << std::endl;
-            // std::cout << combinacoes_operacoes.size() << std::endl;
-            // print_vector_str(combinacao);
-            //  print_vector_int(nova_lista);
             long long resultado = equacoes[i].second[0];
             if (!combinacao.empty())
             {
@@ -116,15 +81,12 @@ int main()
                     }
                 }
             }
-            // std::cout << resultado << std::endl;
             if (resultado == equacoes[i].first)
             {
-                // std::cout << "DEU BOM" << std::endl;
                 cont += resultado;
                 break;
             }
         }
-        // std::cout << "_______________________________________" << std::endl;
     }
     std::cout << cont << std::endl;
 }
